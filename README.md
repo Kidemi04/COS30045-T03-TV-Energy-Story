@@ -2,7 +2,7 @@
 
 ## Data story
 
-Website: https://data-visualisation-indol.vercel.app/televisions.html
+T03 story page: `televisions.html`. Deploy this repository as a static site, then use the deployed site's `/televisions.html` route as the T03 website link.
 
 This story is for Australian television buyers. It helps readers compare common screen sizes, typical rated power and displayed energy-star ratings before choosing a model.
 
