@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta
+			name="description"
+			content="A small interactive website about television energy use in Australia."
+		/>
+		<title>Australian Appliance Energy</title>
+		<link rel="stylesheet" href="styles/styles.css" />
+		<link rel="stylesheet" href="styles/story.css" />
+		<script src="js/main.js" defer></script>
+		<script src="js/story.js" defer></script>
+	</head>
+	<body>
+		<header class="site-header">
+			<nav class="nav" aria-label="Main navigation">
+				<button class="brand" type="button" data-page-link="home" aria-label="Go to home page">
+					<img class="brand-mark" src="assets/PowerIcon.png" alt="" width="48" height="48" />
+					<span>Energy Guide</span>
+				</button>
+
+				<div class="nav-links">
+					<button type="button" data-page-link="home">Home</button>
+					<button type="button" data-page-link="televisions">Televisions</button>
+					<button type="button" data-page-link="about">About Us</button>
+				</div>
+			</nav>
+		</header>
+
+		<main>
+			<section class="page hero" id="home">
+				<div>
+					<p class="eyebrow">Australian appliance energy consumption</p>
+					<h1>Understand the energy used by televisions</h1>
+					<p class="lead">
+						Screen size, display technology and star rating can help consumers compare
+						television models before buying.
+					</p>
+					<button class="primary-button" type="button" data-page-link="televisions">
+						View television data
+					</button>
+				</div>
+
+				<div class="summary-card" aria-label="What this website explores">
+					<h2>What we explore</h2>
+					<ul>
+						<li>Screen technology and size</li>
+						<li>Average-mode power</li>
+						<li>Annual energy consumption</li>
+						<li>Energy star ratings</li>
+					</ul>
+				</div>
+			</section>
+
+			<section class="page content-page" id="televisions" hidden>
+				<p class="eyebrow">Televisions</p>
+				<h1>What should you compare before choosing a TV?</h1>
+				<p class="lead">
+					For 4,591 television models listed as available in Australia, common sizes lead
+					the range and larger screens generally use more rated power. The figures below
+					help you compare like with like.
+				</p>
+
+				<div class="story-signal" aria-label="Key results from the dataset">
+					<div><strong>65″</strong><span>most common size, with 743 models</span></div>
+					<div><strong>108 W</strong><span>median power for LCD (LED)</span></div>
+					<div><strong>r = <span data-story-stat="screen-power-r">0.851</span></strong><span>size and power move together</span></div>
+				</div>
+
+				<div class="story-grid">
+					<article class="story-card">
+						<p class="eyebrow">Question 2 · Screen size</p>
+						<h2>65- and 55-inch models are most common</h2>
+						<p>These two sizes appear most often among listed Australian-available models.</p>
+						<div class="story-chart" id="size-chart" aria-live="polite">Loading chart…</div>
+						<p class="chart-note">Sizes are rounded from the registered diagonal in centimetres.</p>
+					</article>
+					<article class="story-card">
+						<p class="eyebrow">Question 4 · Display technology</p>
+						<h2>LCD has the lowest median power</h2>
+						<p>Median average-mode power is compared across the three registered display technologies.</p>
+						<div class="story-chart" id="power-chart" aria-live="polite">Loading chart…</div>
+						<p class="chart-note">LCD models are generally smaller, so this is not a size-adjusted efficiency comparison.</p>
+					</article>
+					<article class="story-card">
+						<p class="eyebrow">Question 5 · Screen size and power</p>
+						<h2>Larger screens generally draw more power</h2>
+						<p>The scatter plot shows a strong positive association across the listed models.</p>
+						<div class="story-chart" id="size-power-chart" aria-live="polite">Loading chart…</div>
+						<p class="chart-note">Pearson correlation: r = <span data-story-stat="screen-power-r">0.851</span>. Association does not establish cause.</p>
+					</article>
+					<article class="story-card">
+						<p class="eyebrow">Question 6 · Screen size and rating</p>
+						<h2>Size alone does not predict the displayed rating</h2>
+						<p>Screen size has almost no linear association with the displayed Star2 rating.</p>
+						<div class="story-chart" id="size-star-chart" aria-live="polite">Loading chart…</div>
+						<p class="chart-note">Pearson correlation: r = <span data-story-stat="screen-star-r">−0.076</span>. Compare each model’s label and annual energy use.</p>
+					</article>
+				</div>
+				<p class="note">The register also contains <span data-story-stat="brands">77</span> case-normalised brand names. Model counts describe listed products, not sales or market share.</p>
+				<p class="story-links"><a href="televisions.html">Open the full T03 data story and methods</a></p>
+			</section>
+
+			<section class="page content-page" id="about" hidden>
+				<p class="eyebrow">About Us</p>
+				<h1>About this project</h1>
+				<p class="lead">
+					This student project demonstrates HTML structure, CSS styling, JavaScript
+					navigation, GitHub version control and Vercel hosting.
+				</p>
+
+				<div class="about-grid">
+					<article>
+						<h2>Purpose</h2>
+						<p>
+							The website provides a simple place to communicate findings about appliance
+							energy consumption in Australia.
+						</p>
+					</article>
+					<article>
+						<h2>Technology</h2>
+						<p>Built with HTML, CSS and JavaScript, with no external framework.</p>
+					</article>
+				</div>
+			</section>
+		</main>
+
+		<footer>
+			<p>&copy; <span id="year">2026</span> Kelvin Fong</p>
+			<p>GenAI acknowledgement: OpenAI Codex assisted with the initial code and content.</p>
+		</footer>
+	</body>
+</html>

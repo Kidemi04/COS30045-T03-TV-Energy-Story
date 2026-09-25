@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta
+			name="description"
+			content="A data story for Australian television buyers about screen size, rated power and energy labels."
+		/>
+		<title>Television energy choices | Australian Energy Guide</title>
+		<link rel="stylesheet" href="styles/styles.css" />
+		<link rel="stylesheet" href="styles/story.css" />
+		<script src="js/story.js" defer></script>
+	</head>
+	<body>
+		<header class="site-header">
+			<nav class="nav" aria-label="Main navigation">
+				<a class="brand story-nav-link" href="index.html#home" aria-label="Energy Guide home">
+					<img class="brand-mark" src="assets/PowerIcon.png" alt="" width="48" height="48" />
+					<span>Energy Guide</span>
+				</a>
+				<div class="nav-links">
+					<a class="story-nav-link" href="index.html#home">Home</a>
+					<a class="story-nav-link" href="televisions.html" aria-current="page">Televisions</a>
+					<a class="story-nav-link" href="index.html#about">About Us</a>
+				</div>
+			</nav>
+		</header>
+
+		<main class="story-main">
+			<section class="story-hero">
+				<p class="eyebrow">A data story for Australian TV buyers · 22 September 2026 snapshot</p>
+				<h1>Bigger screens usually draw more power. Size alone does not tell the whole story.</h1>
+				<p class="story-lead">
+					Use the Australian television register to compare common screen sizes, typical
+					rated power and displayed star ratings. The data can help you ask better questions
+					while choosing a model.
+				</p>
+				<p class="story-meta">
+					<span><span data-story-stat="records">4,591</span> available models</span>
+					<span><span data-story-stat="brands">77</span> case-normalised brand names</span>
+					<span>Audience: Australian TV buyers</span>
+				</p>
+			</section>
+
+			<section class="story-signal" aria-label="Story at a glance">
+				<div><strong>65″</strong><span>most common registered size, with 743 models</span></div>
+				<div><strong>108 W</strong><span>median average-mode power for LCD (LED)</span></div>
+				<div><strong>r = <span data-story-stat="screen-power-r">0.851</span></strong><span>screen size and power are strongly associated</span></div>
+			</section>
+
+			<section aria-labelledby="story-findings-title">
+				<div class="story-section-heading">
+					<p class="eyebrow">Four questions from the data</p>
+					<h2 id="story-findings-title">What is useful to compare?</h2>
+					<p class="story-lead">
+						Each chart uses models listed as available for sale in Australia after one
+						record per model was retained from the supplied dataset.
+					</p>
+				</div>
+
+				<div class="story-grid">
+					<article class="story-card">
+						<p class="eyebrow">Question 2 · Screen size</p>
+						<h2>65- and 55-inch models are most common</h2>
+						<p>These two sizes appear most often among listed Australian-available models.</p>
+						<div class="story-chart" id="size-chart" aria-live="polite">Loading chart…</div>
+						<p class="chart-note">Top 10 sizes are shown. Registered diagonals in centimetres are rounded to the nearest inch.</p>
+					</article>
+
+					<article class="story-card">
+						<p class="eyebrow">Question 4 · Display technology</p>
+						<h2>LCD has the lowest median power</h2>
+						<p>Median average-mode power compares the three display technologies.</p>
+						<div class="story-chart" id="power-chart" aria-live="polite">Loading chart…</div>
+						<p class="chart-note">LCD models are generally smaller, so this is not a size-adjusted efficiency comparison.</p>
+					</article>
+
+					<article class="story-card">
+						<p class="eyebrow">Question 5 · Screen size and power</p>
+						<h2>Larger screens generally draw more power</h2>
+						<p>The scatter plot shows a strong positive association across the registered models.</p>
+						<div class="story-chart" id="size-power-chart" aria-live="polite">Loading chart…</div>
+						<p class="chart-note">Pearson correlation: r = <span data-story-stat="screen-power-r">0.851</span>. The association alone does not show cause.</p>
+					</article>
+
+					<article class="story-card">
+						<p class="eyebrow">Question 6 · Screen size and rating</p>
+						<h2>Size alone does not predict the displayed rating</h2>
+						<p>Screen size has almost no linear association with the displayed Star2 rating.</p>
+						<div class="story-chart" id="size-star-chart" aria-live="polite">Loading chart…</div>
+						<p class="chart-note">Pearson correlation: r = <span data-story-stat="screen-star-r">−0.076</span>. Check each model’s label and annual energy use.</p>
+					</article>
+				</div>
+			</section>
+
+			<section class="buyer-guide" aria-labelledby="buyer-guide-title">
+				<p class="eyebrow">A practical comparison</p>
+				<h2 id="buyer-guide-title">Compare similar sizes, then check the label</h2>
+				<ul>
+					<li>Compare average-mode power between TVs of a similar screen size.</li>
+					<li>Use the displayed star rating and annual energy consumption for each model.</li>
+					<li>Use these figures as product test information; household energy use also depends on viewing time and settings.</li>
+				</ul>
+			</section>
+
+			<section class="data-method" id="the-data" aria-labelledby="data-method-title">
+				<p class="eyebrow">Data, method and limitations</p>
+				<h2 id="data-method-title">How these figures were prepared</h2>
+				<p>
+					Source: the course-provided Australian television energy-rating CSV,
+					<code>tv_2026_09_22.csv</code>, a snapshot dated 22 September 2026. It contains
+					registered television models, product availability, display technology, screen
+					size, average-mode power and energy-label fields.
+				</p>
+				<ul>
+					<li>Start with 5,036 CSV rows and keep the highest numeric Submit_ID for each Model_No: 4,771 models remain.</li>
+					<li>Keep records marked Available (4,768), then retain models whose SoldIn field includes Australia (4,591).</li>
+					<li>Round screen diagonals from centimetres to the nearest inch for the size chart. Brand capitalization is consolidated while distinct registered brand names remain separate.</li>
+					<li>Power summaries use median Avg_mode_power. The star-rating plot uses Star2, the displayed rating field. Correlations use records with both required numeric values.</li>
+				</ul>
+				<p>
+					The snapshot changes as products are registered or removed. Model counts show listed products, not sales or market share. Rated power comes from product test information; the dataset has no price, household viewing hours or measured household bills. Technology comparisons are not adjusted for screen size. Brand variants can be counted separately.
+				</p>
+				<p>
+					The dataset contains product and registration details, with no personal household information. The download retains its original fields for transparency.
+				</p>
+				<p class="story-links">
+					<a href="data/tv_2026_09_22.csv" download>Download the source CSV</a>
+					<a href="https://miro.com/app/board/uXjVHiPIa2Y=/">Open the six-question Miro storyboard</a>
+				</p>
+			</section>
+		</main>
+
+		<footer class="story-footer">
+			<p>&copy; <span id="year">2026</span> Kelvin Fong · COS30045 Data Visualisation</p>
+			<p>AI Declaration: OpenAI Codex assisted with data checks, chart code and wording. I reviewed the results and take responsibility for the final work.</p>
+		</footer>
+	</body>
+</html>
